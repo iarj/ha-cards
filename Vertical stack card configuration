@@ -1,0 +1,56 @@
+type: vertical-stack
+cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#casa"
+    styles: ""
+    button_type: name
+    sub_button:
+      main: []
+      bottom: []
+    slider_fill_orientation: left
+    slider_value_position: right
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        entity: sensor.priza_z_ac_bucatarie_power
+        max: 2100
+        severity:
+          green: 0
+          yellow: 1000
+          red: 1800
+        name: AC Bucatarie
+        needle: true
+      - type: gauge
+        needle: true
+        entity: sensor.priza_test_power
+        max: 350
+        severity:
+          green: 0
+          yellow: 200
+          red: 300
+        name: Dezumidificator
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        severity:
+          green: 0
+          yellow: 100
+          red: 120
+        unit: W
+        entity: sensor.priza_dev_it_power_2
+        name: IT+Frigider
+        needle: true
+        max: 140
+      - type: gauge
+        entity: sensor.frigider_aubess_smart_socket_20a_em_2_power_2
+        name: Frigider
+        severity:
+          green: 0
+          yellow: 105
+          red: 130
+        needle: true
+        max: 150
+grid_options:
+  columns: 12
+  rows: auto
