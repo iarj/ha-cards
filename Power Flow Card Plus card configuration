@@ -1,0 +1,52 @@
+type: custom:power-flow-card-plus
+entities:
+  battery:
+    state_of_charge: sensor.motorola_edge_40_battery_level
+  grid:
+    entity: sensor.power_meter_active_power
+    secondary_info: {}
+    invert_state: true
+  solar:
+    entity: sensor.inverter_active_power
+    display_zero_state: true
+    secondary_info: {}
+  individual:
+    - entity: sensor.consum_faza_casa
+      secondary_info: {}
+      name: Casa
+      tap_action:
+        action: navigate
+        navigation_path: "#casa"
+    - entity: sensor.consum_faza_magazin
+      secondary_info: {}
+      name: Magazin
+    - entity: sensor.consum_faza_vale
+      secondary_info: {}
+      name: Vale
+  home:
+    secondary_info: {}
+    circle_animation: true
+    subtract_individual: false
+    override_state: false
+    use_metadata: false
+    hide: false
+    entity: sensor.power_meter_consumption
+clickable_entities: true
+display_zero_lines:
+  mode: show
+  transparency: 50
+  grey_color:
+    - 189
+    - 189
+    - 189
+use_new_flow_rate_model: true
+w_decimals: 0
+kw_decimals: 1
+min_flow_rate: 0.75
+max_flow_rate: 6
+max_expected_power: 2000
+min_expected_power: 0.01
+watt_threshold: 1000
+transparency_zero_lines: 0
+title: INSTANT
+sort_individual_devices: false
